@@ -1,0 +1,11 @@
+h4, h5, h6 {
+  margin: 0 10px;
+}
+button {
+  width: 100px;
+  margin: 10px 0;
+}
+.add {
+  width: 100%;
+}
+

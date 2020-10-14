@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+form {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid steelblue;
+
+}
+.red {
+  border: 2px solid red;
+}
+.error {
+  color: red;
+}
+button:disabled {
+  opacity: 0.25;
+}
+.inp {
+  margin: 10px;
+}
+.span {
+  display: inline-block;
+  width: 80px;
+}
+.title {
+  display: inline-block;
+  font-family: "Arial Rounded MT Bold", serif;
+  font-size: 1rem;
+}
+

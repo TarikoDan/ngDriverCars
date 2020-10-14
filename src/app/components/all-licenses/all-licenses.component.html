@@ -1,0 +1,42 @@
+<button class="add" (click)="addNew()">{{isActive ? "Hide form" : "+ Add NEW License"}}r</button>
+
+<div *ngIf="isActive">
+  <form [class]="newLicenseForm.invalid ? 'red' : '' " [formGroup]="newLicenseForm"
+        (ngSubmit)="post()"><span class="title">Add NEW License form:</span>
+
+    <div class="inp">
+      <label> <span class="span">Series:</span>
+        <input type="text" formControlName="series" required
+               placeholder="series">
+      </label>
+      <p class="error" *ngIf="newLicenseForm.get('series').hasError('required')">Enter series</p>
+      <p class="error" *ngIf="newLicenseForm.get('series').hasError('pattern')">Enter Capital Letters</p>
+    </div>
+
+    <div class="inp">
+      <label> <span class="span">District:</span>
+        <input type="text" formControlName="district" required
+               placeholder="district">
+      </label>
+      <p class="error" *ngIf="newLicenseForm.get('district').hasError('required')">Enter district</p>
+      <p class="error" *ngIf="newLicenseForm.get('district').hasError('pattern')">From UpperCase</p>
+    </div>
+
+    <div class="inp">
+      <label> <span class="span">Date:</span>
+        <input type="text" formControlName="date" required
+               placeholder="date">
+      </label>
+      <p class="error" *ngIf="newLicenseForm.get('date').hasError('required')">Enter date</p>
+      <p class="error" *ngIf="newLicenseForm.get('date').hasError('pattern')">(yyyy-MM-dd)</p>
+    </div>
+
+    <button type="submit" [disabled]="newLicenseForm.invalid"> Submit</button>
+  </form>
+</div>
+
+
+<div *ngFor="let license of licenses">
+  {{license | json}}
+  <button routerLink="{{license.id}}">details...</button>
+</div>

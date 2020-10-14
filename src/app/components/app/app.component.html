@@ -1,0 +1,61 @@
+<!-- Toolbar -->
+<div class="toolbar" >
+  <img width="40" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="/>
+  <span>{{title}}</span>
+  <div class="spacer">
+    <div class="card-container">
+      <a class="card" routerLink="/"><span>HOME</span></a>
+
+      <a class="card" routerLink="/drivers"><span>DRIVERs</span></a>
+
+      <a class="card" routerLink="/licenses"><span>LICENSE</span></a>
+
+      <a class="card" routerLink="/cars"><span>CARs</span></a>
+
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+  <div class="footer"><!-- Resources -->
+<!--
+    <input type="hidden" #selection>
+
+    <div class="card-container">
+      <div class="card card-small" (click)="selection.value = 'component'"><span>1</span></div>
+
+      <div class="card card-small" (click)="selection.value = 'material'"><span>2</span></div>
+
+      <div class="card card-small" (click)="selection.value = 'pwa'"><span>3</span></div>
+
+      <div class="card card-small" (click)="selection.value = 'dependency'"><span>4</span></div>
+
+      <div class="card card-small" (click)="selection.value = 'test'"><span>5</span></div>
+
+      <div class="card card-small" (click)="selection.value = 'build'"><span>6</span></div>
+    </div>
+-->
+
+    <!-- Links -->
+    <div class="card-container">
+      <a class="circle-link" title="Animations" href="https://angular.io/guide/animations" target="_blank"
+         rel="noopener">A</a>
+
+      <a class="circle-link" title="CLI" href="https://cli.angular.io/" target="_blank">B</a>
+
+      <a class="circle-link" title="Augury" href="https://augury.rangle.io/" target="_blank">C</a>
+
+      <a class="circle-link" title="Protractor" href="https://www.protractortest.org/" target="_blank">D</a>
+
+      <a class="circle-link" title="Find a Local Meetup" href="https://www.meetup.com/find/?keywords=angular"
+         target="_blank">E</a>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+      <a href="https://github.com/TarikoDan/ngDriverCars" target="_blank" rel="noopener">GITHub</a>
+  </footer>

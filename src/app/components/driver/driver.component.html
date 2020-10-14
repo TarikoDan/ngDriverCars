@@ -1,0 +1,31 @@
+<button routerLink="/drivers"><- BACK</button>
+<div>
+  {{driver | json}}
+  <h3>id: {{driver?.id}} , name: {{driver?.name}}</h3>
+  <h3>email: {{driver?.email}}</h3>
+  <button (click)="edit()">{{isActive ? "Hide form" : "EDIT"}}</button> <button>REMOVE</button>
+  <div *ngIf="isActive">
+    <form [class]="editDriverForm.invalid ? 'red' : '' " [formGroup]="editDriverForm"
+          (ngSubmit)="put()"><span class="title">Edit Driver form:</span>
+
+      <div class="inp">
+        <label> <span class="span">Name:</span>
+          <input type="text" formControlName="name" required
+                 placeholder="name">
+        </label>
+        <p class="error" *ngIf="editDriverForm.get('name').hasError('required')">Enter name</p>
+        <p class="error" *ngIf="editDriverForm.get('name').hasError('pattern')">Enter valid name</p>
+      </div>
+
+      <div class="inp">
+        <label> <span class="span">Email:</span>
+          <input type="email" formControlName="email" placeholder="Enter your Email">
+        </label>
+        <p class="error" *ngIf="editDriverForm.get('email').hasError('required')">Enter Email</p>
+      </div>
+
+      <button type="submit" [disabled]="editDriverForm.invalid"> Submit</button>
+    </form>
+  </div>
+
+</div>
