@@ -18,6 +18,8 @@ const routes: Routes = [
   {path: 'licenses', component: AllLicensesComponent},
   {path: 'licenses/:id', component: LicenseComponent},
   {path: 'cars', component: AllCarsComponent},
+  {path: 'cars/:id', component: CarComponent},
+
 ];
 
 @NgModule({

@@ -1,7 +1,6 @@
-import {Driver} from './Driver';
-
 export interface Car {
+  id: number;
   model: string;
   year: number;
-  driver: Driver;
+  driverName: string;
 }

@@ -1,1 +1,33 @@
-<p>car works!</p>
+<button routerLink="/cars"><- BACK</button>
+<div>
+  {{car | json}}
+  <h3>id: {{car?.id}} ,</h3>
+  <h3>model: {{car?.model}}</h3>
+  <h3>year: {{car?.year}}</h3>
+  <h3>driverName: {{car?.driverName}}</h3>
+  <button (click)="edit()">{{isActive ? "Hide form" : "EDIT"}}</button> <button>REMOVE</button>
+  <div *ngIf="isActive">
+    <form [class]="editCarForm.invalid ? 'red' : '' " [formGroup]="editCarForm"
+          (ngSubmit)="put()"><span class="title">Edit Car form:</span>
+
+      <div class="inp">
+        <label> <span class="span">Model:</span>
+          <input type="text" formControlName="model" required
+                 placeholder="model">
+        </label>
+        <p class="error" *ngIf="editCarForm.get('model').hasError('required')">Enter model</p>
+      </div>
+
+      <div class="inp">
+        <label> <span class="span">Year:</span>
+          <input type="number" formControlName="year" placeholder="Enter year">
+        </label>
+        <p class="error" *ngIf="editCarForm.get('year').hasError('required')">Enter year</p>
+        <p class="error" *ngIf="editCarForm.get('year').hasError('maxLength')">pattern year "yyyy"</p>
+      </div>
+
+      <button type="submit" [disabled]="editCarForm.invalid"> Submit</button>
+    </form>
+  </div>
+
+</div>

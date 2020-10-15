@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {Driver} from '../../models/Driver';
 import {DriversService} from '../../services/drivers.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -36,9 +36,13 @@ export class AllDriversComponent implements OnInit {
 
   postDriver(): void {
     this.driversService.post(this.newDriverForm.value).subscribe(
-      res => console.log(res),
+      res => {
+        console.log(res);
+        this.drivers.push(res);
+      },
       error => alert(error)
     );
     this.newDriverForm.reset();
   }
+
 }

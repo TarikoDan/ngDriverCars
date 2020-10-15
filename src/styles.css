@@ -28,4 +28,11 @@ button:disabled {
   font-family: "Arial Rounded MT Bold", serif;
   font-size: 1rem;
 }
+button {
+  width: 100px;
+  margin: 10px;
+}
+.add {
+  width: 100%;
+}
 

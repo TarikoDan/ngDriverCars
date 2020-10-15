@@ -1,0 +1,31 @@
+<button class="add" (click)="addNew()">{{isActive ? "Hide form" : "+ Add NEW Car"}}r</button>
+
+<div *ngIf="isActive">
+  <form [class]="newCarForm.invalid ? 'red' : '' " [formGroup]="newCarForm"
+        (ngSubmit)="post()"><span class="title">Add NEW Car form:</span>
+
+    <div class="inp">
+      <label> <span class="span">Model:</span>
+        <input type="text" formControlName="model" required
+               placeholder="model">
+      </label>
+      <p class="error" *ngIf="newCarForm.get('model').hasError('required')">Enter model</p>
+    </div>
+
+    <div class="inp">
+      <label> <span class="span">Year:</span>
+        <input type="text" formControlName="year" required
+               placeholder="year">
+      </label>
+      <p class="error" *ngIf="newCarForm.get('year').hasError('required')">Enter year</p>
+      <p class="error" *ngIf="newCarForm.get('year').hasError('maxLength')">pattern year "yyyy"</p>
+    </div>
+
+    <button type="submit" [disabled]="newCarForm.invalid"> Submit</button>
+  </form>
+</div>
+
+<div *ngFor="let car of cars">
+  {{car | json}}
+  <button routerLink="{{car.id}}">details...</button>
+</div>
