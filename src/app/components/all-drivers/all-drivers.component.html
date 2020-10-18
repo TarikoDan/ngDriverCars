@@ -20,6 +20,17 @@
       <p class="error" *ngIf="newDriverForm.get('email').hasError('required')">Enter Email</p>
     </div>
 
+    <div  class="inp">
+      <label> <span class="span">Select Address:</span>
+      <select formControlName="address">
+        <option hidden></option>
+        <option *ngFor="let address of addresses">{{address | json}}</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </label></div>
+
     <button type="submit" [disabled]="newDriverForm.invalid"> Submit</button>
   </form>
 </div>

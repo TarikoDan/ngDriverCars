@@ -13,6 +13,9 @@ export class DriversService {
   post(driver: Driver): Observable<Driver> {
     return this.httpClient.post<Driver>(this.baseURL, driver);
   }
+  postWithAddress(driver: Driver, addressId: string): Observable<Driver> {
+    return this.httpClient.post<Driver>(this.baseURL.concat('/address/', addressId), driver);
+  }
   getAll(): Observable<Driver[]> {
     return this.httpClient.get<Driver[]>(this.baseURL);
   }
@@ -21,6 +24,12 @@ export class DriversService {
   }
   put(id: string, driver: Driver): Observable<Driver> {
     return this.httpClient.put<Driver>(this.baseURL.concat('/', id), driver);
+  }
+  remove(id: string): void {
+    this.httpClient.delete(this.baseURL.concat('/', id));
+  }
+  clear(): void {
+    this.httpClient.delete(this.baseURL.concat('/clear'));
   }
 
 }

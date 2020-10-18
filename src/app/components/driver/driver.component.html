@@ -3,7 +3,10 @@
   {{driver | json}}
   <h3>id: {{driver?.id}} , name: {{driver?.name}}</h3>
   <h3>email: {{driver?.email}}</h3>
-  <button (click)="edit()">{{isActive ? "Hide form" : "EDIT"}}</button> <button>REMOVE</button>
+  <div class="flex">
+    <button (click)="edit()">{{isActive ? "Hide form" : "EDIT"}}</button>
+    <button (click)="remove()">REMOVE</button>
+  </div>
   <div *ngIf="isActive">
     <form [class]="editDriverForm.invalid ? 'red' : '' " [formGroup]="editDriverForm"
           (ngSubmit)="put()"><span class="title">Edit Driver form:</span>

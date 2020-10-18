@@ -11,6 +11,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { LicenseComponent } from './components/license/license.component';
 import { AllLicensesComponent } from './components/all-licenses/all-licenses.component';
+import { AllAddressesComponent } from './components/all-addresses/all-addresses.component';
+import { AddressComponent } from './components/address/address.component';
 
 const routes: Routes = [
   {path: 'drivers', component: AllDriversComponent},
@@ -19,6 +21,8 @@ const routes: Routes = [
   {path: 'licenses/:id', component: LicenseComponent},
   {path: 'cars', component: AllCarsComponent},
   {path: 'cars/:id', component: CarComponent},
+  {path: 'addresses', component: AllAddressesComponent},
+  {path: 'addresses/:id', component: AddressComponent}
 
 ];
 
@@ -30,7 +34,9 @@ const routes: Routes = [
     AllDriversComponent,
     AllCarsComponent,
     LicenseComponent,
-    AllLicensesComponent
+    AllLicensesComponent,
+    AllAddressesComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,

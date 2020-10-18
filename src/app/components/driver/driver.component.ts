@@ -25,7 +25,6 @@ export class DriverComponent implements OnInit {
 
   edit(): void{
     this.isActive = !this.isActive;
-    console.log('init', this.driver);
     this.editDriverForm = this.fb.group({
       name: this.fb.control(this.driver?.name, [
         Validators.required,
@@ -34,7 +33,7 @@ export class DriverComponent implements OnInit {
       email: this.fb.control(this.driver?.email, [
         Validators.required,
         Validators.email
-      ])
+      ]),
     });
 
   }
@@ -48,4 +47,7 @@ export class DriverComponent implements OnInit {
     this.editDriverForm.reset();
   }
 
+  remove(): void {
+    this.driverService.remove(this.driver.id.toString());
+  }
 }

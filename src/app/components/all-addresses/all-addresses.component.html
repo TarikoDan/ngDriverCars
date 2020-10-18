@@ -1,0 +1,5 @@
+<div *ngFor="let address of addresses">
+  {{address | json}}
+  <button routerLink="{{address?.id}}">Details...</button>
+</div>
+
