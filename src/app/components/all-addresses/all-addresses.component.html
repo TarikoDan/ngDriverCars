@@ -1,3 +1,55 @@
+<button class="add" (click)="addNew()">{{isActive ? "Hide form" : "+ Add NEW Address"}}</button>
+
+<div *ngIf="isActive">
+  <form [class]="newAddressForm.invalid ? 'red' : '' " [formGroup]="newAddressForm"
+        (ngSubmit)="postAddress()"><span class="title">Add NEW Address form:</span>
+
+    <div class="inp">
+      <label> <span class="span">PostCode:</span>
+        <input type="number" formControlName="postCode" required
+               placeholder="postCode">
+      </label>
+      <p class="error" *ngIf="newAddressForm.get('postCode').hasError('required')">Enter postCode</p>
+      <p class="error" *ngIf="newAddressForm.get('postCode').hasError('pattern')">Enter valid postCode</p>
+    </div>
+
+    <div class="inp">
+      <label> <span class="span">City:</span>
+        <input type="text" formControlName="city" required
+               placeholder="city">
+      </label>
+      <p class="error" *ngIf="newAddressForm.get('city').hasError('required')">Enter city</p>
+      <p class="error" *ngIf="newAddressForm.get('city').hasError('pattern')">Enter valid city</p>
+    </div>
+
+    <div class="inp">
+      <label> <span class="span">Street:</span>
+        <input type="text" formControlName="street" required
+               placeholder="street">
+      </label>
+      <p class="error" *ngIf="newAddressForm.get('street').hasError('required')">Enter street</p>
+    </div>
+
+    <div class="inp">
+      <label> <span class="span">HouseNumber:</span>
+        <input type="text" formControlName="houseNumber" required
+               placeholder="houseNumber">
+      </label>
+      <p class="error" *ngIf="newAddressForm.get('houseNumber').hasError('required')">Enter houseNumber</p>
+    </div>
+
+    <div  class="inp">
+      <label> <span class="span">Select Driver:</span>
+        <select formControlName="driver">
+          <option hidden></option>
+          <option *ngFor="let driver of drivers">{{driver | json}}</option>
+        </select>
+      </label></div>
+
+    <button type="submit" [disabled]="newAddressForm.invalid"> Submit</button>
+  </form>
+</div>
+
 <div *ngFor="let address of addresses">
   {{address | json}}
   <button routerLink="{{address?.id}}">Details...</button>

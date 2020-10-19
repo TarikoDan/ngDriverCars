@@ -2,7 +2,7 @@ import {Driver} from './Driver';
 
 export interface Address {
   id: number;
-  postCode: string;
+  postCode: number;
   city: string;
   street: string;
   houseNumber: string;

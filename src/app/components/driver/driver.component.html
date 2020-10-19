@@ -1,8 +1,12 @@
-<button routerLink="/drivers"><- BACK</button>
+<button routerLink="/drivers"><- BACK to AllDrivers</button>
 <div>
   {{driver | json}}
   <h3>id: {{driver?.id}} , name: {{driver?.name}}</h3>
   <h3>email: {{driver?.email}}</h3>
+  <div class="flex">
+    <button>Show his Addresses:</button>
+    <button>+Add him New Address</button>
+  </div>
   <div class="flex">
     <button (click)="edit()">{{isActive ? "Hide form" : "EDIT"}}</button>
     <button (click)="remove()">REMOVE</button>

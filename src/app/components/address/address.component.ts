@@ -3,6 +3,7 @@ import {Address} from '../../models/Address';
 import {AddressService} from '../../services/address.service';
 import {ActivatedRoute} from '@angular/router';
 import {Driver} from '../../models/Driver';
+import {DriversService} from '../../services/drivers.service';
 
 @Component({
   selector: 'app-address',
@@ -13,7 +14,10 @@ export class AddressComponent implements OnInit {
 
   address: Address;
   drivers: string;
+  driversList: Driver[];
+
   constructor(private addressService: AddressService,
+              private driversService: DriversService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(data => {
       this.addressService.getById(data.id).subscribe(value => {
@@ -24,6 +28,11 @@ export class AddressComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  showDrivers(): void {
+    this.driversService.getByAddress(this.address.id.toString()).subscribe(value => {
+      this.driversList = value;
+    });
   }
 
 }

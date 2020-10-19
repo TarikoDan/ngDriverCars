@@ -36,3 +36,7 @@ button {
   width: 100%;
 }
 .flex {display: flex}
+select {
+  width: 200px;
+}
+

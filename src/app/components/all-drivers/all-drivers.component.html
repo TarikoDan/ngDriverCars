@@ -1,4 +1,4 @@
-<button class="add" (click)="addNew()">{{isActive ? "Hide form" : "+ Add NEW Drive"}}r</button>
+<button class="add" (click)="addNew()">{{isActive ? "Hide form" : "+ Add NEW Drive"}}</button>
 
 <div *ngIf="isActive">
   <form [class]="newDriverForm.invalid ? 'red' : '' " [formGroup]="newDriverForm"

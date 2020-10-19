@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Driver} from '../models/Driver';
 import {Observable} from 'rxjs';
+import {Address} from '../models/Address';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,9 @@ export class DriversService {
   }
   getAll(): Observable<Driver[]> {
     return this.httpClient.get<Driver[]>(this.baseURL);
+  }
+  getByAddress(addressId: string): Observable<Driver[]> {
+    return this.httpClient.get<Driver[]>(this.baseURL.concat('/address/', addressId));
   }
   getById(id: string): Observable<Driver> {
     return this.httpClient.get<Driver>(this.baseURL.concat('/', id));

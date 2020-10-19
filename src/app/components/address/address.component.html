@@ -1,4 +1,16 @@
-<p>address works!</p>
+<button routerLink="/addresses"><- All Addresses</button>
+
 <h3>id: {{address?.id}}, zipCode: {{address?.postCode}}</h3>
 <h4>city: {{address?.city}}, {{address?.street}} str., {{address?.houseNumber}}</h4>
 <h5>drivers: {{drivers}}</h5>
+<div class="flex">
+  <button [disabled]="drivers?.length == 2"
+          (click)="showDrivers()">
+    Show its Drivers...
+  </button>
+  <button>+Add driver here</button>
+</div>
+<div *ngFor="let driver of driversList">
+  {{driver | json}}
+  <button routerLink="/drivers/{{driver.id}}">Details...</button>
+</div>
